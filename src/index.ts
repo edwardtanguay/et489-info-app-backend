@@ -1,5 +1,17 @@
+import express from 'express';
+
+const app = express();
+
 const getPort = (): number => {
 	return 5123;
 }
 
-console.log(`current port is ${getPort()}`);
+app.get('/', (req, res) => {
+	res.json({
+		appName: 'et489-info-app-backend'
+	})
+})
+
+app.listen(getPort(), () => {
+	console.log(`listening at http://localhost:${getPort()}`);
+})
